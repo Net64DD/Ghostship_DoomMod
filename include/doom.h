@@ -3,6 +3,7 @@
 #include <stdint.h>
 
 #include "macros.h"
+#include "align_asset_macro.h"
 
 extern uint32_t* DG_ScreenBuffer;
 
@@ -36,7 +37,9 @@ extern void DoomDLL_Input(int pressed, unsigned char doomKey);
 extern void DoomDLL_ScreenCopy(uint8_t *rdram);
 extern void DoomDLL_ScreenWidth(uint8_t *rdram);
 extern void DoomDLL_ScreenHeight(uint8_t *rdram);
+extern void SpawnTV(void);
+extern void OnLoadArea(void* _);
 
-static const ALIGN_ASSET(2) char tv_model[] = "__OTR__models/tv/tvbox";
-static const ALIGN_ASSET(2) char snes_model[] = "__OTR__models/snes/snes";
-static const ALIGN_ASSET(2) char snes_controller_model[] = "__OTR__models/snesController/snesController";
+static const ALIGN_ASSET(2) char tv_model[] = "__OTR__objects/custom_objects/tv/tvbox";
+static const ALIGN_ASSET(2) char snes_model[] = "__OTR__objects/custom_objects/snes/snes";
+static const ALIGN_ASSET(2) char snes_controller_model[] = "__OTR__objects/custom_objects/snesController/snesController";
