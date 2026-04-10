@@ -275,7 +275,7 @@ char *M_StrCaseStr(char *haystack, char *needle)
 
     for (i = 0; i <= len; ++i)
     {
-        if (!strncasecmp(haystack + i, needle, needle_len))
+        if (!__strncasecmp(haystack + i, needle, needle_len))
         {
             return haystack + i;
         }

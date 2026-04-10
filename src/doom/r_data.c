@@ -756,7 +756,7 @@ int	R_CheckTextureNumForName (char *name)
     
     while (texture != NULL)
     {
-	if (!strncasecmp (texture->name, name, 8) )
+	if (!__strncasecmp (texture->name, name, 8) )
 	    return texture->index;
 
         texture = texture->next;

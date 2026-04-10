@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(ModTemplate)
+project(DoomMod)
 
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
 
@@ -17,6 +17,7 @@ set(INCLUDE_DIRS
 )
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c")
+list(FILTER SRC_FILES EXCLUDE REGEX ".*.inc.c")
 
 set(BUILD_GEN ${CMAKE_CURRENT_SOURCE_DIR}/output/build.gen)
 get_filename_component(OUTPUT_DIR ${BUILD_GEN} DIRECTORY)
@@ -35,7 +36,7 @@ foreach(SOURCE_FILE ${SRC_FILES})
         COMMAND ${CMAKE_COMMAND} -E make_directory ${INTERMEDIATE_DIR}
         COMMAND Python3::Interpreter ${PARENT_DIR}/tools/merge.py 
                 --out ${OUTPUT_FILE} 
-                --includes ${INCLUDE_DIRS} 
+                --includes ${INCLUDE_DIRS}
                 --src ${SOURCE_FILE}
         DEPENDS ${SOURCE_FILE} ${PARENT_DIR}/tools/merge.py
         VERBATIM

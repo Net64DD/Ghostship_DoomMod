@@ -98,7 +98,7 @@ MOD_INIT() {
     SetupUI();
     DoomDLL_Initialize("doom.wad");
 
-    gDoomScreenBuffer = (uint8_t*) malloc(DOOMGENERIC_RESX * DOOMGENERIC_RESY * 4);
+    gDoomScreenBuffer = (uint8_t*) GameEngine_Malloc(DOOMGENERIC_RESX * DOOMGENERIC_RESY * 4);
     gListenerIDs[0] = REGISTER_LISTENER(RenderGamePost, EVENT_PRIORITY_NORMAL, OnGameRender);
 }
 

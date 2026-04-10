@@ -160,7 +160,7 @@ wad_file_t *W_AddFile (char *filename)
 
     newnumlumps = numlumps;
 
-    if (strcasecmp(filename+strlen(filename)-3 , "wad" ) )
+    if (__strcasecmp(filename+strlen(filename)-3 , "wad" ) )
     {
     	// single lump file
 
@@ -270,7 +270,7 @@ int W_CheckNumForName (char* name)
         
         for (lump_p = lumphash[hash]; lump_p != NULL; lump_p = lump_p->next)
         {
-            if (!strncasecmp(lump_p->name, name, 8))
+            if (!__strncasecmp(lump_p->name, name, 8))
             {
                 return lump_p - lumpinfo;
             }
@@ -284,7 +284,7 @@ int W_CheckNumForName (char* name)
 
         for (i=numlumps-1; i >= 0; --i)
         {
-            if (!strncasecmp(lumpinfo[i].name, name, 8))
+            if (!__strncasecmp(lumpinfo[i].name, name, 8))
             {
                 return i;
             }

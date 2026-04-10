@@ -24,17 +24,8 @@
 // #define macros to provide functions missing in Windows.
 // Outside Windows, we use strings.h for str[n]casecmp.
 
-
-#ifdef _WIN32
-
-#define strcasecmp _stricmp
-#define strncasecmp _strnicmp
-
-#else
-
-#include <strings.h>
-
-#endif
+extern int __strcasecmp(const char *s1, const char *s2);
+extern int __strncasecmp(const char *s1, const char *s2, int n);
 
 
 //
@@ -61,23 +52,11 @@
 // standard and defined to include stdint.h, so include this. 
 
 #include <inttypes.h>
+#include <stdbool.h>
 
-#ifdef __cplusplus
+typedef int boolean;
 
-// Use builtin bool type with C++.
-
-typedef bool boolean;
-
-#else
-
-typedef enum 
-{
-    false	= 0,
-    true	= 1,
-	undef	= 0xFFFFFFFF
-} boolean;
-
-#endif
+#define undef 0xFFFFFFFF
 
 typedef uint8_t byte;
 

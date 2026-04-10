@@ -581,7 +581,7 @@ void D_DoAdvanceDemo (void)
 
     // The Doom 3: BFG Edition version of doom2.wad does not have a
     // TITLETPIC lump. Use INTERPIC instead as a workaround.
-    if (bfgedition && !strcasecmp(pagename, "TITLEPIC")
+    if (bfgedition && !__strcasecmp(pagename, "TITLEPIC")
         && W_CheckNumForName("titlepic") < 0)
     {
         pagename = DEH_String("INTERPIC");
@@ -700,7 +700,7 @@ static void SetMissionForPackName(char *pack_name)
 
     for (i = 0; i < arrlen(packs); ++i)
     {
-        if (!strcasecmp(pack_name, packs[i].name))
+        if (!__strcasecmp(pack_name, packs[i].name))
         {
             gamemission = packs[i].mission;
             return;
@@ -735,12 +735,12 @@ void D_IdentifyVersion(void)
 
         for (i=0; i<numlumps; ++i)
         {
-            if (!strncasecmp(lumpinfo[i].name, "MAP01", 8))
+            if (!__strncasecmp(lumpinfo[i].name, "MAP01", 8))
             {
                 gamemission = doom2;
                 break;
             } 
-            else if (!strncasecmp(lumpinfo[i].name, "E1M1", 8))
+            else if (!__strncasecmp(lumpinfo[i].name, "E1M1", 8))
             {
                 gamemission = doom;
                 break;
