@@ -1,0 +1,20 @@
+<DisplayList Version="0">
+	<ClearGeometryMode G_LIGHTING="1" />
+	<LoadVertices Path="objects/arcadeMachine/arcadeMachine_vtx_cull" VertexBufferIndex="0" VertexOffset="0" Count="8"/>
+	<SetGeometryMode G_LIGHTING="1" />
+	<CullDisplayList Start="0" End="7"/>
+	<CallDisplayList Path="objects/arcadeMachine/mat_arcadeMachine_side1"/>
+	<CallDisplayList Path="objects/arcadeMachine/arcadeMachine_tri_0"/>
+	<CallDisplayList Path="objects/arcadeMachine/mat_arcadeMachine_base1"/>
+	<CallDisplayList Path="objects/arcadeMachine/arcadeMachine_tri_1"/>
+	<CallDisplayList Path="objects/arcadeMachine/mat_arcadeMachine_SCREEN"/>
+	<CallDisplayList Path="objects/arcadeMachine/arcadeMachine_tri_2"/>
+	<CallDisplayList Path="objects/arcadeMachine/mat_arcadeMachine_base2"/>
+	<CallDisplayList Path="objects/arcadeMachine/arcadeMachine_tri_3"/>
+	<CallDisplayList Path="objects/arcadeMachine/mat_arcadeMachine_joystick"/>
+	<CallDisplayList Path="objects/arcadeMachine/arcadeMachine_tri_4"/>
+	<CallDisplayList Path="objects/arcadeMachine/mat_arcadeMachine_button"/>
+	<CallDisplayList Path="objects/arcadeMachine/arcadeMachine_tri_5"/>
+	<EndDisplayList/>
+</DisplayList>
+

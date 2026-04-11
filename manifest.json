@@ -1,0 +1,13 @@
+{
+    "name": "Doom In Ghostship Mod",
+    "main": "build.gen",
+    "version": "1.0.0",
+    "website": "https://github.com/Net64DD/Ghostship_DoomMod",
+    "description": "A mod that brings the classic Doom experience into Ghostship",
+    "author": "Lywx, Net64DD & DarioSamo",
+    "license": "MIT",
+    "dependencies": [
+        "LywxUtils"
+    ],
+    "code-version": 1
+}
