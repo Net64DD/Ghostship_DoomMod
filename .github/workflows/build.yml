@@ -20,7 +20,8 @@ jobs:
       - name: Checkout Ghostship Repository
         uses: actions/checkout@v4
         with:
-          repository: 'HarbourMasters/Ghostship'
+          repository: 'KiritoDv/Ghostship'
+          ref: 'impl/c-mods'
           submodules: 'recursive'
           path: 'Ghostship'
 
