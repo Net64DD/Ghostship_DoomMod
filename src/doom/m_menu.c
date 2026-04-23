@@ -247,7 +247,7 @@ menuitem_t MainMenu[]=
     {1,"M_SAVEG",M_SaveGame,'s'},
     // Another hickup with Special edition.
     {1,"M_RDTHIS",M_ReadThis,'r'},
-    {1,"M_QUITG",M_QuitDOOM,'q'}
+    // {1,"M_QUITG",M_QuitDOOM,'q'}
 };
 
 menu_t  MainDef =

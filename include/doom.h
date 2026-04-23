@@ -23,10 +23,10 @@ extern uint32_t* DG_ScreenBuffer;
 #define CHECK_BTN_ALL(state, combo) (~((state) | ~(combo)) == 0)
 
 #define HANDLE_DOOM_BTN(sm64_mask, doom_key) { \
-    if ((input->buttonDown & (sm64_mask)) && !(prev_buttons & (sm64_mask))) { \
+    if ((input.buttonDown & (sm64_mask)) && !(prev_buttons & (sm64_mask))) { \
         DoomDLL_Input(1, doom_key); \
     } \
-    if (!(input->buttonDown & (sm64_mask)) && (prev_buttons & (sm64_mask))) { \
+    if (!(input.buttonDown & (sm64_mask)) && (prev_buttons & (sm64_mask))) { \
         DoomDLL_Input(0, doom_key); \
     } \
 }

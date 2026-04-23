@@ -1,0 +1,52 @@
+name: Build Mod
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Mod Repository
+        uses: actions/checkout@v4
+        with:
+          path: 'doom'
+
+      - name: Checkout Ghostship Repository
+        uses: actions/checkout@v4
+        with:
+          repository: 'HarbourMasters/Ghostship'
+          submodules: 'recursive'
+          path: 'Ghostship'
+
+      - name: Prepare Workspace
+        run: |
+          mkdir -p Ghostship/workspace
+          mv doom Ghostship/workspace/
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 cmake
+
+      - name: Configure CMake
+        run: |
+          cd Ghostship/workspace/doom
+          cmake -B build -S .
+
+      - name: Build Mod
+        run: |
+          cd Ghostship/workspace/doom
+          cmake --build build -j$(nproc)
+
+      - name: Upload Mod Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: doom-mod-output
+          path: Ghostship/workspace/doom/output/
+          retention-days: 7
