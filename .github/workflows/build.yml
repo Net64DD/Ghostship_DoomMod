@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Mod Repository
         uses: actions/checkout@v4
         with:
-          path: 'doom'
+          path: 'mod-source'
 
       - name: Checkout Ghostship Repository
         uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
       - name: Prepare Workspace
         run: |
           mkdir -p Ghostship/workspace
-          mv doom Ghostship/workspace/
+          mv mod-source Ghostship/workspace
 
       - name: Install Dependencies
         run: |
@@ -38,17 +38,17 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cd Ghostship/workspace/doom
+          cd Ghostship/workspace/mod-source
           cmake -B build -S .
 
       - name: Build Mod
         run: |
-          cd Ghostship/workspace/doom
+          cd Ghostship/workspace/mod-source
           cmake --build build -j$(nproc)
 
       - name: Upload Mod Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: doom-mod-output
-          path: Ghostship/workspace/doom/output/
+          name: mod
+          path: Ghostship/workspace/mod-source/output/
           retention-days: 7
